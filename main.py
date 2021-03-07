@@ -7,19 +7,19 @@ import pygame
 
 ### Глобальні константи
 
-GAME_TITLE = 'Snake game'
+GAME_TITLE = 'Змійка'
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 CENTER_X = 300
 CENTER_Y = 300
 BLOCKSIZE = 20
-TICK = 20
+TICK = 10
 
 # Colors
 WHITE = (255, 255, 255)
-GRAY_LIGHT = (240, 240, 240)
+GRAY = (30, 30, 30)
 BLACK = (0, 0, 0)
-GREEN = (0, 128, 0)
+GREEN = (89, 182, 91)
 RED = (255, 0, 0)
 
 
@@ -45,7 +45,7 @@ def main():
 
     pause = False
 
-    SCREEN.fill(WHITE)
+    SCREEN.fill(BLACK)
     drawGrid()
 
     # Безкінечний цикл, керування клавіатурою
@@ -112,10 +112,10 @@ def snake(x, y, prev_x, prev_y):
 
     # Очистка попередньої клітинки
     if (x != prev_x or y != prev_y):
-        white_rect = pygame.Rect(prev_x, prev_y, BLOCKSIZE, BLOCKSIZE)
+        empty_rect = pygame.Rect(prev_x, prev_y, BLOCKSIZE, BLOCKSIZE)
         cell_rect = pygame.Rect(prev_x, prev_y, BLOCKSIZE, BLOCKSIZE)
-        pygame.draw.rect(SCREEN, WHITE, white_rect)
-        pygame.draw.rect(SCREEN, GRAY_LIGHT, cell_rect, 1)
+        pygame.draw.rect(SCREEN, BLACK, empty_rect)
+        pygame.draw.rect(SCREEN, GRAY, cell_rect, 1)
 
 # Промальовування сітки (сірі клітинки)
 def drawGrid():
@@ -123,7 +123,7 @@ def drawGrid():
         for y in range(WINDOW_HEIGHT // BLOCKSIZE):
             rect = pygame.Rect(x * BLOCKSIZE, y * BLOCKSIZE,
                                BLOCKSIZE, BLOCKSIZE)
-            pygame.draw.rect(SCREEN, GRAY_LIGHT, rect, 1)
+            pygame.draw.rect(SCREEN, GRAY, rect, 1)
 
 # Старт гри
 main()

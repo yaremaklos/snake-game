@@ -2,6 +2,12 @@
 
 Гра «Змійка» і вивчення Python.
 
+
+## Вимоги
+* Python 3
+* Pygame: `pip3 install pygame`
+
+
 ## Цілі
 
 ### Частина №1
